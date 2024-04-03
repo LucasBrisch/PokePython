@@ -1,6 +1,7 @@
 import time
 import sys
 
+global delay_print
 def delay_print(s):
     # print one character at a time
     for c in s:
@@ -57,7 +58,8 @@ Squirtle(água), Charmander(fogo), Bulbasaur(grama) ou Pikachu(elétrico)? \n'''
     elif escolha == "2":
         delay_print(f"Entendido! {pokemon_1} será o nome do seu Pokémon inicial!")
 
-delay_print('Agora que você escolheu seu Pokémon inicial, você está pronto para começar sua jornada! Boa sorte!\n')
+    delay_print('Agora que você escolheu seu Pokémon inicial, você está pronto para começar sua jornada! Boa sorte!\n')
+
     
         
 if __name__ == "__main__":
