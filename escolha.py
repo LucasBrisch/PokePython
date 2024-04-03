@@ -1,9 +1,6 @@
 import time
 import sys
 
-
-pokedex = ['Charmander', 'chameleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise', 'Bulbasaur', 'Ivysaur', 'Venusaur']
-
 def delay_print(s):
     # print one character at a time
     for c in s:
@@ -43,12 +40,6 @@ def escolha_inicial():
     elif escolha == "nao":
         print(f"Entendido! {pokemon_1} será o nome do seu Pokémon inicial!")
         print('Agora que você escolheu seu Pokémon inicial, você está pronto para começar sua jornada! Boa sorte!\n')
-    
-    
-def pokemon_team():
-    global pokemon_1, pokemon_2, pokemon_3, pokemon_4, pokemon_5, pokemon_6
-    print(f"Seu time de pokémons é: \n{pokemon_1} \n{pokemon_2} \n{pokemon_3} \n{pokemon_4} \n{pokemon_5} \n{pokemon_6}")
-    
         
 if __name__ == "__main__":
     escolha_inicial()
