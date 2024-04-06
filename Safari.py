@@ -5,6 +5,7 @@ import PokeBox as box
 import CompiladorJogo as cj
 
 def safari():
+    utils.delay_print ("\nBem-vindo ao Safari!\n")
     utils.delay_print('''\nVocê quer encontrar um Pokémon? 
 [1] sim
 [2] nao
@@ -13,10 +14,11 @@ def safari():
     if escolha in ["s", "sim", '1']:
         utils.delay_print ('''Você gostaria de ir para uma caverna ou para uma floresta?
 [1] Caverna
-[2] Floresta\n''')
+[2] Floresta
+[3] Sair\n''')
         escolha = input()
         
-        while escolha not in ["1", "2"]:
+        while escolha not in ["1", "2", '3']:
             print()
             utils.delay_print("Por favor, escolha uma opção válida!\n")
             utils.delay_print("Você quer capturar o Pokémon? \n[1] sim\n[2] não\n")
@@ -30,6 +32,9 @@ def safari():
             utils.delay_print("indo para a floresta...")
             utils.time.sleep(1)
             floresta()
+        elif escolha == "3":
+            utils.delay_print("Saindo do Safari...")
+            cj.menu()
     elif escolha in ["n", "não", "nao", "2"]:
         utils.delay_print("Tudo bem, até a próxima!\n")
         cj.menu()
@@ -64,11 +69,12 @@ def caverna():
         if escolha == "1":
             utils.delay_print("Pokébola vai!\n")
             time.sleep(1)
-            utils.delay_print("...")
+            utils.delay_print_s("...")
             time.sleep(1)
             utils.delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
             box.pokemon_box.append(pokemon)
             utils.delay_print(f"{pokemon} foi adicionado à sua PokéBox!\n")
+            lendarios_caverna.remove(pokemon)
             safari()
         if escolha == "2":
             utils.delay_print(f"Você fugiu de {pokemon}!\n")
@@ -96,11 +102,12 @@ def caverna():
         if escolha == "1":
             utils.delay_print("Pokébola vai!\n")
             time.sleep(1)
-            utils.delay_print("...")
-            time.sleep(1)
+            utils.delay_print_s("...")
+            time.sleep(2)
             utils.delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
             box.pokemon_box.append(pokemon)
             utils.delay_print(f"{pokemon} foi adicionado à sua PokéBox!\n")
+            pokemons_caverna.remove(pokemon)
             safari()
         if escolha == "2":
             utils.delay_print(f"Você fugiu de {pokemon}!\n")
@@ -133,11 +140,12 @@ def floresta():
         if escolha == "1":
             utils.delay_print("Pokébola vai!\n")
             time.sleep(1)
-            utils.delay_print("...")
-            time.sleep(1)
+            utils.delay_print_s("...")
+            time.sleep(2)
             utils.delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
             box.pokemon_box.append(pokemon)
             utils.delay_print(f"{pokemon} foi adicionado à sua PokéBox!\n")
+            lendarios_floresta.remove(pokemon)
             safari()
         if escolha == "2":
             utils.delay_print(f"Você fugiu de {pokemon}!\n")
@@ -170,6 +178,7 @@ def floresta():
             box.pokemon_box.append(pokemon)
             utils.delay_print(f"{pokemon} foi adicionado à sua PokéBox!\n")
             safari()
+            pokemons_floresta.remove(pokemon)
         if escolha == "2":
             utils.delay_print(f"Você fugiu de {pokemon}!\n")
             safari()

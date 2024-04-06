@@ -12,7 +12,7 @@ Eu mesmo... Estudo Pokémons como profissão.\n\nAgora me diga, qual é o seu no
 [1] Squirtle(água), [2] Charmander(fogo), [3] Bulbasaur(grama) ou [4] Pikachu(elétrico)? \n''')
     starter_pokemon = str(input())
     
-    while starter_pokemon not in ["1", "2", "3", "4" "squirtle","água","squirtle(água)","charmander","fogo","charmander(fogo)",
+    while starter_pokemon not in ["1", "2", "3", "4", "squirtle","água","squirtle(água)","charmander","fogo","charmander(fogo)",
     "bulbasaur","grama","bulbasaur(grama)","pikachu","elétrico","pikachu(elétrico)"]:
         print()
         utils.delay_print("este não é um pokémon inicial válido, por favor, escolha um dos pokémons iniciais disponíveis!\n")
@@ -32,7 +32,7 @@ Eu mesmo... Estudo Pokémons como profissão.\n\nAgora me diga, qual é o seu no
         pokemon_1 = 'Pikachu'
     utils.delay_print(f'''Agora me diga, você gostaria de dar um apelido ao seu {pokemon_1}? 
 [1] sim
-[2] nao) \n''')
+[2] nao \n''')
     escolha = input()
     
     while escolha not in ["1","2"]:
