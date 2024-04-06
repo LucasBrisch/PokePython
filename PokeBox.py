@@ -19,10 +19,10 @@ def player_party():
         box()
         
     elif escolha == "2":
-        utils.delay_print('Voltando para o menu principal...')
+        utils.delay_print('Voltando para o menu principal...\n')
         cj.menu()
     else:
-        utils.delay_print("Escolha inválida, tente novamente.")
+        utils.delay_print("Escolha inválida, tente novamente.\n")
         player_party()        
         
 if __name__ == "__main__":
@@ -33,7 +33,7 @@ def box():
     for pokemon in pokemon_box:
         utils.delay_print(f"\n{pokemon}")
     utils.delay_print('''\nO que você deseja fazer agora?
-[1] Adicionar um Pokémon da sua party à sua PokéBox
+[1] Guardar um pokemon da sua party na sua PokéBox
 [2] Adicionar um Pokémon da sua box a sua equipe de Pokémons
 [3] Sair\n''')
     escolha = input()
