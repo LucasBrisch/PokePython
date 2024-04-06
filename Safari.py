@@ -1,35 +1,40 @@
+import utils as utils
 import random
 import time
-import sys
-
-def delay_print(s):
-    # print one character at a time
-    for c in s:
-        sys.stdout.write(c)
-        sys.stdout.flush()
-        time.sleep(0.05)
+import PokeBox as box
+import CompiladorJogo as cj
 
 def safari():
-    delay_print("Você quer encontrar um Pokémon? (s/n): ")
+    utils.delay_print('''\nVocê quer encontrar um Pokémon? 
+[1] sim
+[2] nao
+''')
     escolha = input()
-    if escolha == "s":
-        delay_print ('''Você gostaria de ir para uma caverna ou para uma floresta?
+    if escolha in ["s", "sim", '1']:
+        utils.delay_print ('''Você gostaria de ir para uma caverna ou para uma floresta?
 [1] Caverna
 [2] Floresta\n''')
         escolha = input()
+        
+        while escolha not in ["1", "2"]:
+            print()
+            utils.delay_print("Por favor, escolha uma opção válida!\n")
+            utils.delay_print("Você quer capturar o Pokémon? \n[1] sim\n[2] não\n")
+            escolha = input()
+        
         if escolha == "1":
-            delay_print("indo para a caverna...")
+            utils.delay_print("indo para a caverna...")
             time.sleep(1)
             caverna()
         if escolha == "2":
-            delay_print("indo para a floresta...")
-            time.sleep(1)
+            utils.delay_print("indo para a floresta...")
+            utils.time.sleep(1)
             floresta()
-    elif escolha == "n":
-        delay_print("\nTudo bem, até a próxima!")
-        exit()
+    elif escolha in ["n", "não", "nao", "2"]:
+        utils.delay_print("Tudo bem, até a próxima!\n")
+        cj.menu()
     else:
-        delay_print("\nEscolha inválida, tente novamente.")
+        utils.delay_print("\nEscolha inválida, tente novamente.")
         safari()
         
 def caverna():
@@ -38,49 +43,67 @@ def caverna():
     lendarios_caverna = ['Mewtwo', 'Mew', 'Articuno', 'Zapdos', 'Moltres', 'Groundon']
     spawn_lendario = random.randint(1, 100)
     if spawn_lendario <= 5:
-        delay_print("\nVocê entrou na caverna\n")
+        utils.delay_print("\nVocê entrou na caverna\n")
         time.sleep(1)
-        delay_print("/Um pokémon lendário apareceu!\n")
+        utils.delay_print("Espera, aquilo é um pokémon lendário?\n")
         time.sleep(1)
         pokemon = random.choice(lendarios_caverna)
-        delay_print(f"\nUm {pokemon} apareceu!\n")
-        delay_print('''Você quer capturar o Pokémon?
-[1] sim
-[2] não
-''')         
-        escolha = input()
-        if escolha == "1":
-            delay_print("Pokébola vai!\n")
-            time.sleep(1)
-            delay_print("...")
-            time.sleep(1)
-            delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
-            #futuramente vai mandar ele pra box
-        if escolha == "2":
-            delay_print(f"Você fugiu de {pokemon}!")
-            safari()
-                       
-    elif spawn_lendario > 5:                
-        delay_print("\nVocê entrou na caverna\n")
-        time.sleep(1)
-        delay_print("procurando um Pokémon...")
-        time.sleep(1)
-        pokemon = random.choice(pokemons_caverna)
-        delay_print(f"\nUm {pokemon} apareceu!\n")
-        delay_print('''Você quer capturar o Pokémon?
+        utils.delay_print(f"\nUm {pokemon} apareceu!\n")
+        utils.delay_print('''Você quer capturar o Pokémon?
 [1] sim
 [2] não
 ''')
         escolha = input()
+        
+        while escolha not in ["1", "2"]:
+            print()
+            utils.delay_print("Por favor, escolha uma opção válida!\n")
+            utils.delay_print("Você quer capturar o Pokémon? \n[1] sim\n[2] não\n")    
+            escolha = input()
+            
         if escolha == "1":
-            delay_print("Pokébola vai!\n")
+            utils.delay_print("Pokébola vai!\n")
             time.sleep(1)
-            delay_print("...")
+            utils.delay_print("...")
             time.sleep(1)
-            delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
-            #futuramente vai mandar ele pra box
+            utils.delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
+            box.pokemon_box.append(pokemon)
+            utils.delay_print(f"{pokemon} foi adicionado à sua PokéBox!\n")
+            safari()
         if escolha == "2":
-            delay_print(f"Você fugiu de {pokemon}!")
+            utils.delay_print(f"Você fugiu de {pokemon}!\n")
+            safari()
+                       
+    elif spawn_lendario > 5:                
+        utils.delay_print("\nVocê entrou na caverna\n")
+        time.sleep(1)
+        utils.delay_print("procurando um Pokémon...")
+        time.sleep(1)
+        pokemon = random.choice(pokemons_caverna)
+        utils.delay_print(f"\nUm {pokemon} apareceu!\n")
+        utils.delay_print('''Você quer capturar o Pokémon?
+[1] sim
+[2] não
+''')
+        escolha = input()
+        
+        while escolha not in ["1", "2"]:
+            print()
+            utils.delay_print("Por favor, escolha uma opção válida!\n")
+            utils.delay_print("Você quer capturar o Pokémon? \n[1] sim\n[2] não\n")
+            escolha = input()
+            
+        if escolha == "1":
+            utils.delay_print("Pokébola vai!\n")
+            time.sleep(1)
+            utils.delay_print("...")
+            time.sleep(1)
+            utils.delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
+            box.pokemon_box.append(pokemon)
+            utils.delay_print(f"{pokemon} foi adicionado à sua PokéBox!\n")
+            safari()
+        if escolha == "2":
+            utils.delay_print(f"Você fugiu de {pokemon}!\n")
             safari()
     
 def floresta():
@@ -89,49 +112,66 @@ def floresta():
     lendarios_floresta = ['Celebi', 'Raikou', 'Entei', 'Suicune', 'Lugia', 'Kyogre']
     spawn_lendario = random.randint(1, 100)
     if spawn_lendario <= 5:
-        delay_print("\nVocê entrou na floresta\n")
+        utils.delay_print("\nVocê entrou na floresta\n")
         time.sleep(1)
-        delay_print("/Um pokémon lendário apareceu!\n")
+        utils.delay_print("Espera, aquilo é um pokémon lendário?\n")
         time.sleep(1)
         pokemon = random.choice(lendarios_floresta)
-        delay_print(f"\nUm {pokemon} apareceu!\n")
-        delay_print('''Você quer capturar o Pokémon?
-[1] sim
-[2] não
-''')         
-        escolha = input()
-        if escolha == "1":
-            delay_print("Pokébola vai!\n")
-            time.sleep(1)
-            delay_print("...")
-            time.sleep(1)
-            delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
-            #futuramente vai mandar ele pra box
-        if escolha == "2":
-            delay_print(f"Você fugiu de {pokemon}!")
-            safari()
-                       
-    elif spawn_lendario > 5:                
-        delay_print("\nVocê entrou na floresta")
-        time.sleep(1)
-        delay_print("procurando um Pokémon...")
-        time.sleep(1)
-        pokemon = random.choice(pokemons_floresta)
-        delay_print(f"\nUm {pokemon} apareceu!\n")
-        delay_print('''Você quer capturar o Pokémon?
+        utils.delay_print(f"\nUm {pokemon} apareceu!\n")
+        utils.delay_print('''Você quer capturar o Pokémon?
 [1] sim
 [2] não
 ''')
         escolha = input()
+        
+        while escolha not in ["1", "2"]:
+            print()
+            utils.delay_print("Por favor, escolha uma opção válida!\n")
+            utils.delay_print("Você quer capturar o Pokémon? \n[1] sim\n[2] não\n") 
+            escolha = input() 
+                   
         if escolha == "1":
-            delay_print("Pokébola vai!\n")
+            utils.delay_print("Pokébola vai!\n")
             time.sleep(1)
-            delay_print("...")
+            utils.delay_print("...")
             time.sleep(1)
-            delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
-            #futuramente vai mandar ele pra box
+            utils.delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
+            box.pokemon_box.append(pokemon)
+            utils.delay_print(f"{pokemon} foi adicionado à sua PokéBox!\n")
+            safari()
         if escolha == "2":
-            delay_print(f"Você fugiu de {pokemon}!")
+            utils.delay_print(f"Você fugiu de {pokemon}!\n")
+            safari()
+                       
+    elif spawn_lendario > 5:                
+        utils.delay_print("\nVocê entrou na floresta\n")
+        time.sleep(1)
+        utils.delay_print("procurando um Pokémon...")
+        time.sleep(1)
+        pokemon = random.choice(pokemons_floresta)
+        utils.delay_print(f"\nUm {pokemon} apareceu!\n")
+        utils.delay_print('''Você quer capturar o Pokémon?
+[1] sim
+[2] não
+''')
+        escolha = input()
+        
+        while escolha not in ["1", "2"]:
+            print()
+            utils.delay_print("Por favor, escolha uma opção válida!\n")
+            utils.delay_print("Você quer capturar o Pokémon? \n[1] sim\n[2] não\n")
+            escolha = input()
+        if escolha == "1":
+            utils.delay_print("Pokébola vai!\n")
+            time.sleep(1)
+            utils.delay_print("...")
+            time.sleep(1)
+            utils.delay_print(f"Parabéns! Você capturou um {pokemon}!\n")
+            box.pokemon_box.append(pokemon)
+            utils.delay_print(f"{pokemon} foi adicionado à sua PokéBox!\n")
+            safari()
+        if escolha == "2":
+            utils.delay_print(f"Você fugiu de {pokemon}!\n")
             safari()
 
 
