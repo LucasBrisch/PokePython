@@ -38,13 +38,16 @@ def box():
 [3] Sair\n''')
     escolha = input()
     if escolha == "1":
-        utils.delay_print("Qual Pokémon você deseja adicionar à sua PokéBox? \n")
+        utils.delay_print("Qual Pokémon você deseja adicionar à sua PokéBox? (Digite 'exit' para voltar)\n")
         for pokemon in pokemon_party:
             utils.delay_print (f"{pokemon} \n")
             
         escolha = input().capitalize()
         while escolha not in pokemon_party:
-            utils.delay_print("\nPor favor, escolha um Pokémon válido!\n")
+            if escolha == "Exit":
+                box()
+            else:
+                utils.delay_print("\nPor favor, escolha um Pokémon válido!\n")
         if len(pokemon_party) == 1:
             utils.delay_print("\nSua party ficará vazia! Por favor, adicione um Pokémon antes de remover outro.\n")
             box()
@@ -54,12 +57,15 @@ def box():
             utils.delay_print(f"\n{escolha} foi removido de sua party e adicionado à sua PokéBox!\n")
             box()
     elif escolha == "2":
-        utils.delay_print("Qual Pokémon você deseja adicionar à sua party?\n")
+        utils.delay_print("Qual Pokémon você deseja adicionar à sua party? (Digite 'exit' para voltar)\n")
         for pokemon in pokemon_box:
             utils.delay_print(f"{pokemon} \n")
         escolha = input().capitalize()
         while escolha not in pokemon_box:
-            utils.delay_print("\nPor favor, escolha um Pokémon válido!\n")
+            if escolha == "Exit":
+                box()
+            else:    
+                utils.delay_print("\nPor favor, escolha um Pokémon válido!\n")
         if len(pokemon_party) == 6:
             utils.delay_print("\nSua party está cheia! Por favor, remova um Pokémon antes de adicionar outro.\n")
             box()

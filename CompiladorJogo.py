@@ -14,7 +14,8 @@ def menu():
 [1] Acessar sua party
 [2] Acessar sua PokéBox
 [3] Acessar o Safari
-[4] Sair do jogo\n''')
+[4] Batalhar (em breve)
+[5] Sair do jogo\n''')
     escolha = input()
     if escolha == "1":
         PokeBox.player_party()
@@ -23,6 +24,9 @@ def menu():
     elif escolha == "3":
         Safari.safari()
     elif escolha == "4":
+        utils.delay_print("Essa funcionalidade ainda não foi implementada, volte mais tarde!\n")
+        menu()
+    elif escolha == "5":
         utils.delay_print("Tem certeza de que deseja sair do jogo? Seu progresso não será salvo!\n")
         utils.delay_print('''[1] sim
 [2] não\n''')

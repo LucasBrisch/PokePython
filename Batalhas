@@ -1,0 +1,4 @@
+#ainda em desenvolvimento
+def batalha(pokemon1, pokemon2):
+    # aqui vai acontecer a batalha entre os pokemons
+    pass
