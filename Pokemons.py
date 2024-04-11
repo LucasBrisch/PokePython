@@ -5,11 +5,12 @@ Pokemons_no_jogo = ['Zubat', 'Geodude', 'Onix', 'Machop', 'Cubone', 'Mewtwo', 'M
 # Deve existir um jeito melhor de fazer isso........
 
 class Pokemon:
-    def __init__(self, nome, nivel, hp, movimentos):
+    def __init__(self, nome, nivel, hp, movimentos, tipo):
         self.nome = nome
         self.nivel = nivel
         self.hp = hp
         self.movimentos = movimentos
+        self.tipo = tipo
 
 class Movimento:
     def __init__(self, nome, dano, tipo):
@@ -29,8 +30,8 @@ iron_tail = Movimento('Iron Tail', 30, 'Steel')
 Karate_Chop = Movimento('Karate Chop', 25, 'Fighting')
 Dig = Movimento('Dig', 30, 'Ground')
 Thunderbolt = Movimento('Thunderbolt', 35, 'Electric')
-Ember = Movimento('Ember', 25, 'Fire')
-Water_Gun = Movimento('Water Gun', 25, 'Water')
+Ember = Movimento('Ember', 30, 'Fire')
+Water_Gun = Movimento('Water Gun', 35, 'Water')
 Vine_Whip = Movimento('Vine Whip', 25, 'Grass')
 Confusion = Movimento('Confusion', 30, 'Psychic')
 Ice_Beam = Movimento('Ice Beam', 35, 'Ice')
@@ -51,35 +52,35 @@ Quick_Attack = Movimento('Quick Attack', 45, 'Normal')
 Absorb = Movimento('Absorb', 45, 'Grass')
 Acid = Movimento('Acid', 45, 'Poison')
 String_Shot = Movimento('String Shot', 45, 'Bug')
-Vine_Whip = Movimento('Vine Whip', 45, 'Grass')
+Vine_Whip = Movimento('Vine Whip', 25, 'Grass')
 Gust = Movimento('Gust', 45, 'Flying')
 
 
 # Pokemons
-Zubat = Pokemon('Zubat', 5, 100, [Tackle, Leech_Life])
-Geodude = Pokemon('Geodude', 5, 100, [Tackle, Rock_Throw])
-Onix = Pokemon('Onix', 20, 100, [Tackle, Rock_Throw])
-Machop = Pokemon('Machop', 5, 100, [Karate_Chop, Dig])
-Cubone = Pokemon('Cubone', 5, 100, [Bone_club, Dig])
-Mewtwo = Pokemon('Mewtwo', 70, 100, [Psychic, Thunderbolt])
-Mew = Pokemon('Mew', 70, 100, [Psychic, Psybeam])
-Articuno = Pokemon('Articuno', 70, 100, [Ice_Beam, Blizzard])
-Zapdos = Pokemon('Zapdos', 70, 100, [Thunder, Thunderbolt])
-Moltres = Pokemon('Moltres', 70, 100, [Fire_Blast, Flamethrower])
-Groundon = Pokemon('Groundon', 70, 100, [Earthquake, Fire_Blast])
-Pidgey = Pokemon('Pidgey', 5, 100, [Tackle, Gust])
-Rattata = Pokemon('Rattata', 5, 100, [Tackle, Quick_Attack])
-Oddish = Pokemon('Oddish', 5, 100, [Absorb, Acid])
-Bellsprout = Pokemon('Bellsprout', 5, 100, [Vine_Whip, Acid])
-Caterpie = Pokemon('Caterpie', 5, 100, [Tackle, String_Shot])
-Celebi = Pokemon('Celebi', 70, 100, [Psychic, Giga_Drain])
-Raikou = Pokemon('Raikou', 70, 100, [Thunder, Thunderbolt])
-Entei = Pokemon('Entei', 70, 100, [Fire_Blast, Flamethrower])
-Suicune = Pokemon('Suicune', 70, 100, [Surf, Blizzard])
-Lugia = Pokemon('Lugia', 70, 100, [Hydro_Pump, Psychic])
-Kyogre = Pokemon('Kyogre', 70, 100, [Hydro_Pump, Surf])
-Charmander = Pokemon('Charmander', 5, 100, [Tackle, Ember])
-Squirtle = Pokemon('Squirtle', 5, 100, [Tackle, Water_Gun])
-Bulbasaur = Pokemon('Bulbasaur', 5, 100, [Tackle, Vine_Whip])
-Pikachu = Pokemon('Pikachu', 5, 100, [Tackle, Thunderbolt])
+Zubat = Pokemon('Zubat', 5, 100, 'Poison', [Tackle, Leech_Life])
+Geodude = Pokemon('Geodude', 5, 100, [Tackle, Rock_Throw], 'Rock')
+Onix = Pokemon('Onix', 20, 100, [Tackle, Rock_Throw], 'Rock')
+Machop = Pokemon('Machop', 5, 100, [Karate_Chop, Dig], 'Fighting')
+Cubone = Pokemon('Cubone', 5, 100, [Bone_club, Dig], 'Ground')
+Mewtwo = Pokemon('Mewtwo', 70, 100, [Psychic, Thunderbolt], 'Psychic')
+Mew = Pokemon('Mew', 70, 100, [Psychic, Psybeam], 'Psychic')
+Articuno = Pokemon('Articuno', 70, 100, [Ice_Beam, Blizzard], 'Ice')
+Zapdos = Pokemon('Zapdos', 70, 100, [Thunder, Thunderbolt], 'Electric')
+Moltres = Pokemon('Moltres', 70, 100, [Fire_Blast, Flamethrower], 'Fire')
+Groundon = Pokemon('Groundon', 70, 100, [Earthquake, Fire_Blast], 'Ground')
+Pidgey = Pokemon('Pidgey', 5, 100, [Tackle, Gust], 'Flying')
+Rattata = Pokemon('Rattata', 5, 100, [Tackle, Quick_Attack], 'Normal')
+Oddish = Pokemon('Oddish', 5, 100, [Absorb, Acid], 'Grass')
+Bellsprout = Pokemon('Bellsprout', 5, 100, [Vine_Whip, Acid], 'Grass')
+Caterpie = Pokemon('Caterpie', 5, 100, [Tackle, String_Shot], 'Bug')
+Celebi = Pokemon('Celebi', 70, 100, [Psychic, Giga_Drain], 'Grass')
+Raikou = Pokemon('Raikou', 70, 100, [Thunder, Thunderbolt], 'Electric')
+Entei = Pokemon('Entei', 70, 100, [Fire_Blast, Flamethrower], 'Fire')
+Suicune = Pokemon('Suicune', 70, 100, [Surf, Blizzard], 'Ice')
+Lugia = Pokemon('Lugia', 70, 100, [Hydro_Pump, Psychic], 'Psychic')
+Kyogre = Pokemon('Kyogre', 70, 100, [Hydro_Pump, Surf], 'Water')
+Charmander = Pokemon('Charmander', 5, 80, [Tackle, Ember], 'Fire')
+Squirtle = Pokemon('Squirtle', 5, 70, [Tackle, Water_Gun], 'Water')
+Bulbasaur = Pokemon('Bulbasaur', 5, 90, [Tackle, Vine_Whip], 'Grass')
+Pikachu = Pokemon('Pikachu', 5, 100, [Tackle, Thunderbolt], 'Electric')
 

@@ -5,6 +5,7 @@ import Safari as safari
 import PokeBox as box
 
 player_name = ''
+mochila = ["Potion", "Super Potion", "Hyper Potion", "Revive"]
 
 def delay_print(s):
     # print one character at a time
