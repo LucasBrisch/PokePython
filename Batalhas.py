@@ -1,6 +1,7 @@
 import random
 import utils
 import Pokemons as p
+import bag as b
 
 pokemon_party = ["Bulbasaur", "Charmander", "Squirtle"]
 
@@ -56,7 +57,9 @@ def batalha (pokemon_ativo, pokemon_adversario):
         utils.delay_print("Você foi derrotado!")
     elif pokemon_adversario.hp <= 0:
         utils.delay_print("Você venceu a batalha!")
-        
+        item = random.choice (["Potion", "Super Potion", "Hyper Potion", "Revive"])
+        utils.delay_print (f"O adversário derrubou um(a) {item}")
+        b.receber_item ()
 def ataque (pokemon_ativo, pokemon_adversario):
     utils.delay_print("Escolha um ataque: ")
     for i in range(len(pokemon_ativo.movimentos)):
@@ -104,7 +107,7 @@ def menu_batalha ():
     if escolha == 4:
         fugir()
         
-def bag ():
+def mochila ():
     utils.delay_print("O que você deseja usar?\n")
     for i in range(len(utils.mochila)):
         utils.delay_print(f"{i+1} - {utils.mochila[i]}")
