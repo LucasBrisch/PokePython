@@ -93,19 +93,6 @@ def ataque_adversario (pokemon_ativo, pokemon_adversario):
     else:
         batalha(pokemon_ativo, pokemon_adversario)
     
-
-def menu_batalha ():
-    utils.delay_print("O que você deseja fazer?\n")
-    utils.delay_print("[1] - Atacar\n [2] - Trocar de pokemon\n [3] - Acessar sua bag \n [4] - Fugir\n")
-    escolha = int(input())
-    if escolha == 1:
-        ataque()
-    if escolha == 2:
-        trocar_pokemon()
-    if escolha == 3:
-        bag()
-    if escolha == 4:
-        fugir()
         
 def mochila ():
     utils.delay_print("O que você deseja usar?\n")
@@ -120,13 +107,6 @@ def mochila ():
     elif escolha == 4:
         revive()
         
-def cura (pocao):
-    if pocao == "Potion":
-        vida += 20
-    if pocao == "Super Potion":
-        vida += 50
-    if pocao == "Hyper Potion":
-        vida += 100
 
 def revive ():
     utils.delay_print("Escolha um pokemon para reviver: ")
