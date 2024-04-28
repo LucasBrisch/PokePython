@@ -1,16 +1,16 @@
 import utils
-import Batalhas as b
+import batalhasv2 as b
 import CompiladorJogo as cj
 
 player_bag = []
 def receber_item ():
-    global player_bag
-    if b.item in player_bag:
-        utils.delay_print (f'Você já tem um {b.item} na sua mochila... \n Você deixou {b.item} para trás e voltou para casa...')
+    global player_bag, obj
+    if obj in player_bag:
+        utils.delay_print (f'Você já tem um {obj} na sua mochila... \n Você deixou {obj} para trás e voltou para casa...')
         cj.menu()
     else:
-     player_bag.append(b.item)
-     utils.delay_print (f'O/A {b.item} foi adicionado a sua mochila!\n Você volta para casa com seu novo item')
+     player_bag.append(obj)
+     utils.delay_print (f'O/A {obj} foi adicionado a sua mochila!\nVocê volta para casa com seu novo item')
      cj.menu()
     
 def mochila ():

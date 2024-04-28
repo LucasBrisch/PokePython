@@ -84,3 +84,85 @@ Squirtle = Pokemon('Squirtle', 5, 70, [Tackle, Water_Gun], 'Water')
 Bulbasaur = Pokemon('Bulbasaur', 5, 90, [Tackle, Vine_Whip], 'Grass')
 Pikachu = Pokemon('Pikachu', 5, 100, [Tackle, Thunderbolt], 'Electric')
 
+pokemon_classes = {
+        "Bulbasaur": Bulbasaur,
+        "Charmander": Charmander,
+        "Squirtle": Squirtle,
+        "Pikachu": Pikachu,
+        "Zubat": Zubat,
+        "Geodude": Geodude,
+        "Onix": Onix,
+        "Machop": Machop,
+        "Cubone": Cubone,
+        "Mewtwo": Mewtwo,
+        "Mew": Mew,
+        "Articuno": Articuno,
+        "Zapdos": Zapdos,
+        "Moltres": Moltres,
+        "Groundon": Groundon,
+        "Pidgey": Pidgey,
+        "Rattata": Rattata,
+        "Oddish": Oddish,
+        "Bellsprout": Bellsprout,
+        "Caterpie": Caterpie,
+        "Celebi": Celebi,
+        "Raikou": Raikou,
+        "Entei": Entei,
+        "Suicune": Suicune,
+        "Lugia": Lugia,
+        "Kyogre": Kyogre
+    }
+
+def escolhido(pokemon_ativo):
+    if pokemon_ativo == "Pikachu":
+        return Pikachu
+    elif pokemon_ativo == "Charmander":
+        return Charmander
+    elif pokemon_ativo == "Squirtle":
+        return Squirtle
+    elif pokemon_ativo == "Bulbasaur":
+        return Bulbasaur
+    elif pokemon_ativo == "Zubat":
+        return Zubat
+    elif pokemon_ativo == "Geodude":
+        return Geodude
+    elif pokemon_ativo == "Onix":
+        return Onix
+    elif pokemon_ativo == "Machop":
+        return Machop
+    elif pokemon_ativo == "Cubone":
+        return Cubone
+    elif pokemon_ativo == "Mewtwo":
+        return Mewtwo
+    elif pokemon_ativo == "Mew":
+        return Mew
+    elif pokemon_ativo == "Articuno":
+        return Articuno
+    elif pokemon_ativo == "Zapdos":
+        return Zapdos
+    elif pokemon_ativo == "Moltres":
+        return Moltres
+    elif pokemon_ativo == "Groundon":
+        return Groundon
+    elif pokemon_ativo == 'Kyogre':
+        return Kyogre
+    elif pokemon_ativo == 'Lugia':
+        return Lugia
+    elif pokemon_ativo == 'Suicune':
+        return Suicune
+    elif pokemon_ativo == 'Entei':
+        return Entei
+    elif pokemon_ativo == 'Raikou':
+        return Raikou
+    elif pokemon_ativo == 'Celebi':
+        return Celebi
+    elif pokemon_ativo == 'Caterpie':
+        return Caterpie
+    elif pokemon_ativo == 'Bellsprout':
+        return Bellsprout
+    elif pokemon_ativo == 'Oddish':
+        return Oddish
+    elif pokemon_ativo == 'Rattata':
+        return Rattata
+    elif pokemon_ativo == 'Pidgey':
+        return Pidgey

@@ -1,5 +1,6 @@
 import utils
 import PokeBox
+import Pokemons as p
         
 def escolha_inicial():
     print()
@@ -30,28 +31,12 @@ Eu mesmo... Estudo Pokémons como profissão.\n\nAgora me diga, qual é o seu no
     elif starter_pokemon in ["4", "pikachu","elétrico","pikachu(elétrico)", 'eletrico']:
         utils.delay_print("Ah, o bom e velho Pikachu, ótima escolha!\n")
         pokemon_1 = 'Pikachu'
-    utils.delay_print(f'''Agora me diga, você gostaria de dar um apelido ao seu {pokemon_1}? 
-[1] sim
-[2] nao \n''')
-    escolha = input()
-    
-    while escolha not in ["1","2"]:
-        print()
-        utils.delay_print("Por favor, escolha uma opção válida!\n")
-        utils.delay_print(f'''Agora me diga, você gostaria de dar um apelido ao seu {pokemon_1}? 
-[1] sim
-[2] nao) \n''').strip().lower() 
-        escolha = input ()
-    if escolha == "1":
-        utils.delay_print("Qual será o apelido do seu Pokémon? \n")
-        pokemon_1 = input()
-        utils.delay_print(f"Ótimo! A partir de agora, {pokemon_1} será o nome do seu Pokémon inicial!")
-    elif escolha == "2":
-        utils.delay_print(f"Entendido! {pokemon_1} será o nome do seu Pokémon inicial!")
 
     utils.delay_print('\nAgora que você escolheu seu Pokémon inicial, você está pronto para começar sua jornada! Boa sorte!\n')
-    PokeBox.pokemon_party.append(pokemon_1)
     utils.player_name = player_name
+    PokeBox.pokemon_party.append(pokemon_1)
+            
+
     
         
 if __name__ == "__main__":

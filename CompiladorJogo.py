@@ -2,6 +2,7 @@ import escolha
 import PokeBox
 import Safari
 import utils
+import batalhasv2 as b
 
 def start():
     escolha.escolha_inicial()
@@ -14,7 +15,7 @@ def menu():
 [1] Acessar sua party
 [2] Acessar sua PokéBox
 [3] Acessar o Safari
-[4] Batalhar (em breve)
+[4] Batalhar (em desenvolvimento.....)
 [5] Sair do jogo\n''')
     escolha = input()
     if escolha == "1":
@@ -24,8 +25,7 @@ def menu():
     elif escolha == "3":
         Safari.safari()
     elif escolha == "4":
-        utils.delay_print("Essa funcionalidade ainda não foi implementada, volte mais tarde!\n")
-        menu()
+        b.comeco_batalha()
     elif escolha == "5":
         utils.delay_print("Tem certeza de que deseja sair do jogo? Seu progresso não será salvo!\n")
         utils.delay_print('''[1] sim
