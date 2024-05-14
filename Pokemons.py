@@ -57,7 +57,7 @@ Gust = Movimento('Gust', 45, 'Flying')
 
 
 # Pokemons
-Zubat = Pokemon('Zubat', 5, 100, 'Poison', [Tackle, Leech_Life])
+Zubat = Pokemon('Zubat', 5, 100, 'Poison', [Tackle, Leech_Life], 'Poison')
 Geodude = Pokemon('Geodude', 5, 100, [Tackle, Rock_Throw], 'Rock')
 Onix = Pokemon('Onix', 20, 100, [Tackle, Rock_Throw], 'Rock')
 Machop = Pokemon('Machop', 5, 100, [Karate_Chop, Dig], 'Fighting')
@@ -83,35 +83,6 @@ Charmander = Pokemon('Charmander', 5, 80, [Tackle, Ember], 'Fire')
 Squirtle = Pokemon('Squirtle', 5, 70, [Tackle, Water_Gun], 'Water')
 Bulbasaur = Pokemon('Bulbasaur', 5, 90, [Tackle, Vine_Whip], 'Grass')
 Pikachu = Pokemon('Pikachu', 5, 100, [Tackle, Thunderbolt], 'Electric')
-
-pokemon_classes = {
-        "Bulbasaur": Bulbasaur,
-        "Charmander": Charmander,
-        "Squirtle": Squirtle,
-        "Pikachu": Pikachu,
-        "Zubat": Zubat,
-        "Geodude": Geodude,
-        "Onix": Onix,
-        "Machop": Machop,
-        "Cubone": Cubone,
-        "Mewtwo": Mewtwo,
-        "Mew": Mew,
-        "Articuno": Articuno,
-        "Zapdos": Zapdos,
-        "Moltres": Moltres,
-        "Groundon": Groundon,
-        "Pidgey": Pidgey,
-        "Rattata": Rattata,
-        "Oddish": Oddish,
-        "Bellsprout": Bellsprout,
-        "Caterpie": Caterpie,
-        "Celebi": Celebi,
-        "Raikou": Raikou,
-        "Entei": Entei,
-        "Suicune": Suicune,
-        "Lugia": Lugia,
-        "Kyogre": Kyogre
-    }
 
 def escolhido(pokemon_ativo):
     if pokemon_ativo == "Pikachu":
@@ -166,3 +137,33 @@ def escolhido(pokemon_ativo):
         return Rattata
     elif pokemon_ativo == 'Pidgey':
         return Pidgey
+
+pokemon_classes = {
+        "Bulbasaur": Bulbasaur,
+        "Charmander": Charmander,
+        "Squirtle": Squirtle,
+        "Pikachu": Pikachu,
+        "Zubat": Zubat,
+        "Geodude": Geodude,
+        "Onix": Onix,
+        "Machop": Machop,
+        "Cubone": Cubone,
+        "Mewtwo": Mewtwo,
+        "Mew": Mew,
+        "Articuno": Articuno,
+        "Zapdos": Zapdos,
+        "Moltres": Moltres,
+        "Groundon": Groundon,
+        "Pidgey": Pidgey,
+        "Rattata": Rattata,
+        "Oddish": Oddish,
+        "Bellsprout": Bellsprout,
+        "Caterpie": Caterpie,
+        "Celebi": Celebi,
+        "Raikou": Raikou,
+        "Entei": Entei,
+        "Suicune": Suicune,
+        "Lugia": Lugia,
+        "Kyogre": Kyogre
+    }
+
