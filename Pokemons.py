@@ -18,10 +18,6 @@ class Movimento:
         self.dano = dano
         self.tipo = tipo
 
-def batalha(pokemon1, pokemon2):
-    # Implemente a lógica da batalha aqui
-    pass
-
 # Movimentos
 Tackle = Movimento('Tackle', 10, 'Normal')
 Leech_Life = Movimento('Leech Life', 15, 'Bug')
@@ -57,7 +53,7 @@ Gust = Movimento('Gust', 45, 'Flying')
 
 
 # Pokemons
-Zubat = Pokemon('Zubat', 5, 100, 'Poison', [Tackle, Leech_Life], 'Poison')
+Zubat = Pokemon('Zubat', 5, 100, [Tackle, Leech_Life], 'Poison')
 Geodude = Pokemon('Geodude', 5, 100, [Tackle, Rock_Throw], 'Rock')
 Onix = Pokemon('Onix', 20, 100, [Tackle, Rock_Throw], 'Rock')
 Machop = Pokemon('Machop', 5, 100, [Karate_Chop, Dig], 'Fighting')

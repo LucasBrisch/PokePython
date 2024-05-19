@@ -7,13 +7,10 @@ import PokeBox as pb
 
 
 def adversario():
-    adversario = random.choice(["Bulbasaur", "Charmander", "Squirtle"])
-    if adversario == "Bulbasaur":
-        return p.Bulbasaur
-    elif adversario == "Charmander":
-        return p.Charmander
-    elif adversario == "Squirtle":
-        return p.Squirtle
+    random_pokemon = random.choice(p.Pokemons_no_jogo)
+    adversario = p.escolhido(random_pokemon)
+    return adversario
+    
     
 def pokemon_escolhido():
     utils.delay_print("Escolha um pokemon para batalhar: ")
