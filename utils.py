@@ -3,6 +3,7 @@ import sys
 import random
 import Safari as safari
 import PokeBox as box
+import copy
 
 player_name = ''
 mochila = ["Potion", "Super Potion", "Hyper Potion", "Revive"]
@@ -40,14 +41,17 @@ def arremesso():
             time.sleep(1)
             random_number = random.randint(1, 100)
             if random_number <= 60:        
-                delay_print(f"Parabéns! Você capturou um {safari.pokemon}!\n")
-                box.pokemon_box.append(safari.pokemon)
+                delay_print(f"Parabéns! Você capturou um {safari.pokemon.nome}!\n")
+                box.pokemon_box.append(copy.deepcopy(safari.pokemon))
                 delay_print(f"{safari.pokemon} foi adicionado à sua PokéBox!\n")
                 safari.safari()
             else:
-                delay_print(f"Essa não! O {safari.pokemon} escapou!\n")
+                delay_print(f"Essa não! O {safari.pokemon.nome} escapou!\n")
                 delay_print("Volte aqui depois de um tempo para tentar encontra-lo novamente!\n")
                 safari.safari()
     if escolha == "2":
-        delay_print(f"Você fugiu de {safari.pokemon}!\n")
+        delay_print(f"Você fugiu de {safari.pokemon.nome}!\n")
         safari.safari()
+
+def criar_copia(pokemon):
+    return copy.deepcopy(pokemon)

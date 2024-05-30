@@ -1,22 +1,24 @@
-Pokemons_no_jogo = ['Zubat', 'Geodude', 'Onix', 'Machop', 'Cubone', 'Mewtwo', 'Mew', 'Articuno', 'Zapdos', 
-'Moltres', 'Groundon', 'Pidgey', 'Rattata', 'Oddish', 'Bellsprout', 'Caterpie', 'Celebi', 'Raikou',
-'Entei', 'Suicune', 'Lugia', 'Kyogre', 'Charmander', 'Squirtle', 'Bulbasaur', 'Pikachu']
-
-# Deve existir um jeito melhor de fazer isso........
+# Description: Arquivo que contém as classes de Pokemons, Movimentos e itens do jogo.
 
 class Pokemon:
-    def __init__(self, nome, nivel, hp, movimentos, tipo):
+    def __init__(self, nome, nivel, hp, movimentos, tipo, hp_max):
         self.nome = nome
         self.nivel = nivel
         self.hp = hp
         self.movimentos = movimentos
         self.tipo = tipo
+        self.hp_max = hp_max
 
 class Movimento:
     def __init__(self, nome, dano, tipo):
         self.nome = nome
         self.dano = dano
         self.tipo = tipo
+        
+class Item: 
+    def __init__(self, nome, descricao):
+        self.nome = nome
+        self.descricao = descricao
 
 # Movimentos
 Tackle = Movimento('Tackle', 10, 'Normal')
@@ -50,116 +52,44 @@ Acid = Movimento('Acid', 45, 'Poison')
 String_Shot = Movimento('String Shot', 45, 'Bug')
 Vine_Whip = Movimento('Vine Whip', 25, 'Grass')
 Gust = Movimento('Gust', 45, 'Flying')
+#########################################################################
 
 
 # Pokemons
-Zubat = Pokemon('Zubat', 5, 100, [Tackle, Leech_Life], 'Poison')
-Geodude = Pokemon('Geodude', 5, 100, [Tackle, Rock_Throw], 'Rock')
-Onix = Pokemon('Onix', 20, 100, [Tackle, Rock_Throw], 'Rock')
-Machop = Pokemon('Machop', 5, 100, [Karate_Chop, Dig], 'Fighting')
-Cubone = Pokemon('Cubone', 5, 100, [Bone_club, Dig], 'Ground')
-Mewtwo = Pokemon('Mewtwo', 70, 100, [Psychic, Thunderbolt], 'Psychic')
-Mew = Pokemon('Mew', 70, 100, [Psychic, Psybeam], 'Psychic')
-Articuno = Pokemon('Articuno', 70, 100, [Ice_Beam, Blizzard], 'Ice')
-Zapdos = Pokemon('Zapdos', 70, 100, [Thunder, Thunderbolt], 'Electric')
-Moltres = Pokemon('Moltres', 70, 100, [Fire_Blast, Flamethrower], 'Fire')
-Groundon = Pokemon('Groundon', 70, 100, [Earthquake, Fire_Blast], 'Ground')
-Pidgey = Pokemon('Pidgey', 5, 100, [Tackle, Gust], 'Flying')
-Rattata = Pokemon('Rattata', 5, 100, [Tackle, Quick_Attack], 'Normal')
-Oddish = Pokemon('Oddish', 5, 100, [Absorb, Acid], 'Grass')
-Bellsprout = Pokemon('Bellsprout', 5, 100, [Vine_Whip, Acid], 'Grass')
-Caterpie = Pokemon('Caterpie', 5, 100, [Tackle, String_Shot], 'Bug')
-Celebi = Pokemon('Celebi', 70, 100, [Psychic, Giga_Drain], 'Grass')
-Raikou = Pokemon('Raikou', 70, 100, [Thunder, Thunderbolt], 'Electric')
-Entei = Pokemon('Entei', 70, 100, [Fire_Blast, Flamethrower], 'Fire')
-Suicune = Pokemon('Suicune', 70, 100, [Surf, Blizzard], 'Ice')
-Lugia = Pokemon('Lugia', 70, 100, [Hydro_Pump, Psychic], 'Psychic')
-Kyogre = Pokemon('Kyogre', 70, 100, [Hydro_Pump, Surf], 'Water')
-Charmander = Pokemon('Charmander', 5, 80, [Tackle, Ember], 'Fire')
-Squirtle = Pokemon('Squirtle', 5, 70, [Tackle, Water_Gun], 'Water')
-Bulbasaur = Pokemon('Bulbasaur', 5, 90, [Tackle, Vine_Whip], 'Grass')
-Pikachu = Pokemon('Pikachu', 5, 100, [Tackle, Thunderbolt], 'Electric')
+Zubat = Pokemon('Zubat', 5, 100, [Tackle, Leech_Life], 'Poison', 100)
+Geodude = Pokemon('Geodude', 5, 100, [Tackle, Rock_Throw], 'Rock', 100)
+Onix = Pokemon('Onix', 20, 100, [Tackle, Rock_Throw], 'Rock', 100)
+Machop = Pokemon('Machop', 5, 100, [Karate_Chop, Dig], 'Fighting', 100)
+Cubone = Pokemon('Cubone', 5, 100, [Bone_club, Dig], 'Ground', 100)
+Mewtwo = Pokemon('Mewtwo', 70, 100, [Psychic, Thunderbolt], 'Psychic', 100)
+Mew = Pokemon('Mew', 70, 100, [Psychic, Psybeam], 'Psychic', 100)
+Articuno = Pokemon('Articuno', 70, 100, [Ice_Beam, Blizzard], 'Ice', 100)
+Zapdos = Pokemon('Zapdos', 70, 100, [Thunder, Thunderbolt], 'Electric', 100)
+Moltres = Pokemon('Moltres', 70, 100, [Fire_Blast, Flamethrower], 'Fire', 100)
+Groundon = Pokemon('Groundon', 70, 100, [Earthquake, Fire_Blast], 'Ground', 100)
+Pidgey = Pokemon('Pidgey', 5, 100, [Tackle, Gust], 'Flying', 100)
+Rattata = Pokemon('Rattata', 5, 100, [Tackle, Quick_Attack], 'Normal', 100)
+Oddish = Pokemon('Oddish', 5, 100, [Absorb, Acid], 'Grass', 100)
+Bellsprout = Pokemon('Bellsprout', 5, 100, [Vine_Whip, Acid], 'Grass', 100)
+Caterpie = Pokemon('Caterpie', 5, 100, [Tackle, String_Shot], 'Bug', 100)
+Celebi = Pokemon('Celebi', 70, 100, [Psychic, Giga_Drain], 'Grass', 100)
+Raikou = Pokemon('Raikou', 70, 100, [Thunder, Thunderbolt], 'Electric', 100)
+Entei = Pokemon('Entei', 70, 100, [Fire_Blast, Flamethrower], 'Fire', 100)
+Suicune = Pokemon('Suicune', 70, 100, [Surf, Blizzard], 'Ice', 100)
+Lugia = Pokemon('Lugia', 70, 100, [Hydro_Pump, Psychic], 'Psychic', 100)
+Kyogre = Pokemon('Kyogre', 70, 100, [Hydro_Pump, Surf], 'Water', 100)
+Charmander = Pokemon('Charmander', 5, 80, [Tackle, Ember], 'Fire', 80)
+Squirtle = Pokemon('Squirtle', 5, 70, [Tackle, Water_Gun], 'Water', 70)
+Bulbasaur = Pokemon('Bulbasaur', 5, 90, [Tackle, Vine_Whip], 'Grass', 90)
+Pikachu = Pokemon('Pikachu', 5, 100, [Tackle, Thunderbolt], 'Electric', 100)
+#########################################################################
 
-def escolhido(pokemon_ativo):
-    if pokemon_ativo == "Pikachu":
-        return Pikachu
-    elif pokemon_ativo == "Charmander":
-        return Charmander
-    elif pokemon_ativo == "Squirtle":
-        return Squirtle
-    elif pokemon_ativo == "Bulbasaur":
-        return Bulbasaur
-    elif pokemon_ativo == "Zubat":
-        return Zubat
-    elif pokemon_ativo == "Geodude":
-        return Geodude
-    elif pokemon_ativo == "Onix":
-        return Onix
-    elif pokemon_ativo == "Machop":
-        return Machop
-    elif pokemon_ativo == "Cubone":
-        return Cubone
-    elif pokemon_ativo == "Mewtwo":
-        return Mewtwo
-    elif pokemon_ativo == "Mew":
-        return Mew
-    elif pokemon_ativo == "Articuno":
-        return Articuno
-    elif pokemon_ativo == "Zapdos":
-        return Zapdos
-    elif pokemon_ativo == "Moltres":
-        return Moltres
-    elif pokemon_ativo == "Groundon":
-        return Groundon
-    elif pokemon_ativo == 'Kyogre':
-        return Kyogre
-    elif pokemon_ativo == 'Lugia':
-        return Lugia
-    elif pokemon_ativo == 'Suicune':
-        return Suicune
-    elif pokemon_ativo == 'Entei':
-        return Entei
-    elif pokemon_ativo == 'Raikou':
-        return Raikou
-    elif pokemon_ativo == 'Celebi':
-        return Celebi
-    elif pokemon_ativo == 'Caterpie':
-        return Caterpie
-    elif pokemon_ativo == 'Bellsprout':
-        return Bellsprout
-    elif pokemon_ativo == 'Oddish':
-        return Oddish
-    elif pokemon_ativo == 'Rattata':
-        return Rattata
-    elif pokemon_ativo == 'Pidgey':
-        return Pidgey
+# Itens
+Pocao = Item('Pocao', 'Recupera 20 de HP')
+#########################################################################
 
-pokemon_classes = {
-        "Bulbasaur": Bulbasaur,
-        "Charmander": Charmander,
-        "Squirtle": Squirtle,
-        "Pikachu": Pikachu,
-        "Zubat": Zubat,
-        "Geodude": Geodude,
-        "Onix": Onix,
-        "Machop": Machop,
-        "Cubone": Cubone,
-        "Mewtwo": Mewtwo,
-        "Mew": Mew,
-        "Articuno": Articuno,
-        "Zapdos": Zapdos,
-        "Moltres": Moltres,
-        "Groundon": Groundon,
-        "Pidgey": Pidgey,
-        "Rattata": Rattata,
-        "Oddish": Oddish,
-        "Bellsprout": Bellsprout,
-        "Caterpie": Caterpie,
-        "Celebi": Celebi,
-        "Raikou": Raikou,
-        "Entei": Entei,
-        "Suicune": Suicune,
-        "Lugia": Lugia,
-        "Kyogre": Kyogre
-    }
+#essa lista tb servirá como um banco de dados para os pokemons que o jogador poderá capturar, vulgo Pokedex
+Pokemons_no_jogo = [Zubat, Geodude, Onix, Machop, Cubone, Mewtwo, Mew, Articuno, Zapdos, Moltres, Groundon, Pidgey, Rattata,
+Oddish, Bellsprout, Caterpie, Celebi, Raikou, Entei, Suicune, Lugia, Kyogre, Charmander, Squirtle, Bulbasaur, Pikachu]
+
 

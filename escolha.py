@@ -21,20 +21,20 @@ Eu mesmo... Estudo Pokémons como profissão.\n\nAgora me diga, qual é o seu no
         starter_pokemon = str(input())
     if starter_pokemon in ["1", "squirtle","água","squirtle(água)", 'agua']:
         utils.delay_print("Você escolheu o Squirtle; ótima escolha!\n")
-        pokemon_1 = 'Squirtle'
+        pokemon_1 = p.Squirtle
     elif starter_pokemon in ["2", "charmander","fogo","charmander(fogo)"]:
         utils.delay_print("Você escolheu o Charmander; ótima escolha!\n")
-        pokemon_1 = 'Charmander'
+        pokemon_1 = p.Charmander
     elif starter_pokemon in ["3", "bulbasaur","grama","bulbasaur(grama)"]:
         utils.delay_print("Você escolheu o Bulbasaur; ótima escolha!\n")
-        pokemon_1 = 'Bulbasaur'
+        pokemon_1 = p.Bulbasaur
     elif starter_pokemon in ["4", "pikachu","elétrico","pikachu(elétrico)", 'eletrico']:
         utils.delay_print("Ah, o bom e velho Pikachu, ótima escolha!\n")
-        pokemon_1 = 'Pikachu'
+        pokemon_1 = p.Pikachu
 
     utils.delay_print('\nAgora que você escolheu seu Pokémon inicial, você está pronto para começar sua jornada! Boa sorte!\n')
     utils.player_name = player_name
-    PokeBox.pokemon_party.append(pokemon_1)
+    PokeBox.pokemon_party.append(utils.criar_copia(pokemon_1))
             
 
     

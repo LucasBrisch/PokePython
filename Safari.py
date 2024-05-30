@@ -3,6 +3,7 @@ import random
 import time
 import PokeBox as box
 import CompiladorJogo as cj
+import Pokemons as p
 
 def safari():
     utils.delay_print ("\nBem-vindo ao Safari!\n")
@@ -45,8 +46,8 @@ def safari():
 def caverna():
     global pokemon, local
     local = 'caverna'
-    pokemons_caverna = ['Zubat', 'Geodude', 'Onix', 'Machop', 'Cubone']
-    lendarios_caverna = ['Mewtwo', 'Mew', 'Articuno', 'Zapdos', 'Moltres', 'Groundon']
+    pokemons_caverna = [p.Zubat, p.Geodude, p.Onix, p.Machop, p.Cubone]
+    lendarios_caverna = [p.Mewtwo, p.Mew, p.Articuno, p.Zapdos, p.Moltres, p.Groundon]
     spawn_lendario = random.randint(1, 100)
     if spawn_lendario <= 5:
         utils.delay_print("\nVocê entrou na caverna\n")
@@ -54,7 +55,7 @@ def caverna():
         utils.delay_print("Espera, aquilo é um pokémon lendário?\n")
         time.sleep(1)
         pokemon = random.choice(lendarios_caverna)
-        utils.delay_print(f"\nUm {pokemon} apareceu!\n")
+        utils.delay_print(f"\nUm {pokemon.nome} apareceu!\n")
         utils.delay_print('''Você quer capturar o Pokémon?
 [1] sim
 [2] não
@@ -67,7 +68,7 @@ def caverna():
         utils.delay_print("procurando um Pokémon...")
         time.sleep(1)
         pokemon = random.choice(pokemons_caverna)
-        utils.delay_print(f"\nUm {pokemon} apareceu!\n")
+        utils.delay_print(f"\nUm {pokemon.nome} apareceu!\n")
         utils.delay_print('''Você quer capturar o Pokémon?
 [1] sim
 [2] não
@@ -77,8 +78,8 @@ def caverna():
 def floresta():
     global pokemon, local
     local = 'floresta'
-    pokemons_floresta = ['Pidgey', 'Rattata', 'Oddish', 'Bellsprout', 'Caterpie']
-    lendarios_floresta = ['Celebi', 'Raikou', 'Entei', 'Suicune', 'Lugia', 'Kyogre']
+    pokemons_floresta = [p.Pidgey, p.Rattata, p.Oddish, p.Bellsprout, p.Caterpie]
+    lendarios_floresta = [p.Celebi, p.Raikou, p.Entei, p.Suicune, p.Lugia, p.Kyogre]
     spawn_lendario = random.randint(1, 100)
     if spawn_lendario <= 5:
         utils.delay_print("\nVocê entrou na floresta\n")
@@ -86,7 +87,7 @@ def floresta():
         utils.delay_print("Espera, aquilo é um pokémon lendário?\n")
         time.sleep(1)
         pokemon = random.choice(lendarios_floresta)
-        utils.delay_print(f"\nUm {pokemon} apareceu!\n")
+        utils.delay_print(f"\nUm {pokemon.nome} apareceu!\n")
         utils.delay_print('''Você quer capturar o Pokémon?
 [1] sim
 [2] não
@@ -99,7 +100,7 @@ def floresta():
         utils.delay_print("procurando um Pokémon...")
         time.sleep(1)
         pokemon = random.choice(pokemons_floresta)
-        utils.delay_print(f"\nUm {pokemon} apareceu!\n")
+        utils.delay_print(f"\nUm {pokemon.nome} apareceu!\n")
         utils.delay_print('''Você quer capturar o Pokémon?
 [1] sim
 [2] não
