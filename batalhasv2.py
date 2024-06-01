@@ -43,7 +43,7 @@ def menu_batalha (pokemon_ativo, pokemon_adversario):
     if escolha == 2:
         pokemon_ativo = trocar_pokemon()
     if escolha == 3:
-        bag()
+        b.bag()
     if escolha == 4:
         fuga = random.choice([True, False])
         if fuga:

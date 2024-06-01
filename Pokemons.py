@@ -128,7 +128,7 @@ Extrasensory = Movimento('Extrasensory', 80, 'Psychic')
 # Pokemons
 #nome, nivel, hp, movimentos, tipo, hp_max, xp_max, xp, evolucao=None, nivel_evolucao=None
 
-Charizard = Pokemon('Charizard', 36, 0, [Ember, Flamethrower, Wing_Attack, Hyper_Beam], 'Fire', 150, 100)
+Charizard = Pokemon('Charizard', 36, 150, [Ember, Flamethrower, Wing_Attack, Hyper_Beam], 'Fire', 150, 100)
 Charmeleon = Pokemon('Charmeleon', 16, 80, [Ember, Flamethrower, Scratch, Wing_Attack], 'Fire', 80, 50, evolucao=Charizard, nivel_evolucao=36)
 Charmander = Pokemon('Charmander', 5, 20, [Tackle, Ember, Scratch, Dig], 'Fire', 20, 10, evolucao=Charmeleon, nivel_evolucao=16)
 
