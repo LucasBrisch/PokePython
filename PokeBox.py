@@ -1,16 +1,17 @@
 import utils
 import escolha as e
 import CompiladorJogo as cj
+import Pokemons as p
 
 global pokemon_party, pokemon_box
-pokemon_party = ['Pikachu', 'Groundon']
+pokemon_party = [ (p.Pikachu),(p.Groudon)]
 pokemon_box = []   
     
 def player_party():
     print()
     utils.delay_print(f'''\nOlá, {utils.player_name}! Essa é a sua equipe de Pokémons atual:''')
     for i in pokemon_party:
-        utils.delay_print(f"\n{i}")
+        utils.delay_print(f"\n{i.nome}")
     utils.delay_print('''\nGostaria de acessar a sua box para editar sua party?
 [1] sim
 [2] não\n''')
@@ -31,7 +32,7 @@ if __name__ == "__main__":
 def box():
     utils.delay_print(f'''Olá, {utils.player_name}! Essa é a sua PokéBox atual:''')
     for pokemon in pokemon_box:
-        utils.delay_print(f"\n{pokemon}")
+        utils.delay_print(f"\n{pokemon.nome}")
     utils.delay_print('''\nO que você deseja fazer agora?
 [1] Guardar um pokemon da sua party na sua PokéBox
 [2] Adicionar um Pokémon da sua box a sua equipe de Pokémons

@@ -4,21 +4,23 @@ import bag as b
 import CompiladorJogo as cj
 import Pokemons as p
 import PokeBox as pb
+party_adversario = []
+
+import copy
 
 
 def adversario():
-    random_pokemon = random.choice(p.Pokemons_no_jogo)
-    adversario = p.escolhido(random_pokemon)
-    return adversario
+    global party_adversario
+    party_adversario = copy.deepcopy(random.sample(p.Pokemons_no_jogo, 6))
+    return random.choice(party_adversario)
     
     
 def pokemon_escolhido():
     utils.delay_print("Escolha um pokemon para batalhar: ")
     for i in range(len(pb.pokemon_party)):
-       utils.delay_print(f"{i+1}- {pb.pokemon_party[i]} ")  # Acessa o nome do Pokemon
+       utils.delay_print(f"{i+1}- {pb.pokemon_party[i].nome} ")  # Acessa o nome do Pokemon
     escolha = int(input(" \n"))
-    pkmn = pb.pokemon_party[escolha-1]
-    pokemon_ativo = p.escolhido(pkmn)
+    pokemon_ativo = pb.pokemon_party[escolha-1]
     return pokemon_ativo
     
 
