@@ -21,10 +21,14 @@ class Movimento:
         self.dano = dano
         self.tipo = tipo
         
-class Item: 
-    def __init__(self, nome, descricao):
+class Pocao: 
+    def __init__(self, nome, descricao, cura, qtd, condicao = False):
         self.nome = nome
         self.descricao = descricao
+        self.cura = cura
+        self.qtd = qtd
+        self.condicao = condicao
+        
 
 def nivel_up(pkmn):
         pkmn.nivel += 1
@@ -36,6 +40,12 @@ def nivel_up(pkmn):
             pkmn = pkmn.evolucao
         else:
             utils.delay_print(f"Parabéns! Seu {pkmn.nome} subiu de nível! Nível atual: {pkmn.nivel}!")
+            
+#itens
+Potion = Pocao('Potion', 'Cura 20 de HP', 20, 0)
+Super_Potion = Pocao('Super Potion', 'Cura 50 de HP', 50, 0)
+Hyper_Potion = Pocao('Hyper Potion', 'Cura 200 de HP', 200, 0)
+Revive = Pocao('Revive', 'Revive um pokemon com 50% de HP', 0, 0, True)
         
 # Movimentos
 Tackle = Movimento('Tackle', 40, 'Normal')
@@ -118,7 +128,7 @@ Extrasensory = Movimento('Extrasensory', 80, 'Psychic')
 # Pokemons
 #nome, nivel, hp, movimentos, tipo, hp_max, xp_max, xp, evolucao=None, nivel_evolucao=None
 
-Charizard = Pokemon('Charizard', 36, 150, [Ember, Flamethrower, Wing_Attack, Hyper_Beam], 'Fire', 150, 100)
+Charizard = Pokemon('Charizard', 36, 0, [Ember, Flamethrower, Wing_Attack, Hyper_Beam], 'Fire', 150, 100)
 Charmeleon = Pokemon('Charmeleon', 16, 80, [Ember, Flamethrower, Scratch, Wing_Attack], 'Fire', 80, 50, evolucao=Charizard, nivel_evolucao=36)
 Charmander = Pokemon('Charmander', 5, 20, [Tackle, Ember, Scratch, Dig], 'Fire', 20, 10, evolucao=Charmeleon, nivel_evolucao=16)
 

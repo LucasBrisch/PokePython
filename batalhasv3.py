@@ -7,6 +7,7 @@ import Pokemons as p
 import PokeBox as pb
 import CompiladorJogo as cj
 import pokecenter as pokecenter
+import bag as b
 party_adversario = []
 
 
@@ -76,7 +77,7 @@ def adversario():
     global party_adversario
     party_adversario = []
     for i in range(6):
-        party_adversario.append(utils.criar_copia(random.choice(p.Pokemons_no_jogo)))
+        party_adversario.append(utils.criar_copia(random.choice(p.pokemons_no_jogo)))
     return random.choice(party_adversario)
     
     
@@ -106,7 +107,7 @@ def menu_batalha (pokemon_ativo, pokemon_adversario):
             pokemon_ativo = trocar_pokemon(pokemon_ativo, pokemon_adversario)
             ataque_adversario(pokemon_ativo, pokemon_adversario)
         if escolha == 3:
-            bag()
+            b.bag()
         if escolha == 4:
             fuga = random.randint(1, 100)
             if fuga <= 50:
@@ -143,9 +144,8 @@ def ataque (pokemon_ativo, pokemon_adversario):
             pokemon_adversario = trocar_pokemon_adv()
             menu_batalha(pokemon_ativo, pokemon_adversario)
         else:
-            utils.delay_print("\nTodos os pokemons adversarios foram nocauteados! Você venceu a batalha!")
+            utils.delay_print("\nTodos os pokemons adversarios foram nocauteados! Você venceu a batalha!\n")
             final_batalha()
-    #aqui vai verificar se o adversario morreu, se ele estiver vivo, ele ataca, se não, ele troca de pokemon (função q eu ainda tenho q fazer)
     
 
 def ataque_adversario (pokemon_ativo, pokemon_adversario):
@@ -170,7 +170,6 @@ def ataque_adversario (pokemon_ativo, pokemon_adversario):
         else:
             print(f"{pokemon_ativo.nome} foi nocauteado!")
             novo_pokemon_ativo = trocar_pokemon(pokemon_ativo, pokemon_adversario)
-            menu_batalha(novo_pokemon_ativo, pokemon_adversario)
     else:
         utils.delay_print("Todos os seus pokemons foram nocauteados! Você perdeu a batalha!\n Indo para o centro pokemon...")
         pokecenter.pokecenter()
@@ -207,7 +206,7 @@ def trocar_pokemon(pokemon_ativo, pokemon_adversario):
             trocar_pokemon(pokemon_ativo, pokemon_adversario)
         elif esta_vivo(novo_pokemon_ativo):
             utils.delay_print(f"Você escolheu {novo_pokemon_ativo.nome}!\n")
-            return novo_pokemon_ativo
+            menu_batalha(novo_pokemon_ativo, pokemon_adversario)
         else:
             utils.delay_print("Esse pokémon está nocauteado! Escolha outro!")
             trocar_pokemon(pokemon_ativo, pokemon_adversario)
@@ -220,8 +219,12 @@ def trocar_pokemon_adv():
             break
     utils.delay_print(f"\nO adversário trocou para {pokemon_adversario.nome}!\n")
     return pokemon_adversario
-comeco_batalha()
 
 def final_batalha():
-    utils.delay_print("Você venceu a batalha!")
+    utils.xp()
+    b.recompensa
+    cj.menu()
+    
+if __name__ == "__main__":
+    comeco_batalha()
     

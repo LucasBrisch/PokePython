@@ -4,7 +4,7 @@ import CompiladorJogo as cj
 import Pokemons as p
 
 global pokemon_party, pokemon_box
-pokemon_party = [ (p.Pikachu),(p.Groudon)]
+pokemon_party = [ (p.Charizard)]
 pokemon_box = []   
     
 def player_party():

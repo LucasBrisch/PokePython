@@ -2,7 +2,7 @@ import escolha
 import PokeBox
 import SafariSimples as Safari
 import utils
-import batalhasv2 as b
+import batalhasv3 as b
 import pokecenter as pokecenter
 
 def start():
@@ -16,7 +16,7 @@ def menu():
 [1] Acessar sua party
 [2] Acessar sua PokéBox
 [3] Acessar o Safari
-[4] Batalhar (em desenvolvimento.....)
+[4] Batalhar
 [5] PokeCenter
 [6] Sair do jogo\n''')
     escolha = input()
