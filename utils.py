@@ -4,6 +4,8 @@ import random
 import Safari as safari
 import PokeBox as box
 import copy
+import PokeBox as pb
+import Pokemons as p
 
 player_name = ''
 mochila = ["Potion", "Super Potion", "Hyper Potion", "Revive"]
@@ -44,6 +46,10 @@ def arremesso():
                 delay_print(f"Parabéns! Você capturou um {safari.pokemon.nome}!\n")
                 box.pokemon_box.append(copy.deepcopy(safari.pokemon))
                 delay_print(f"{safari.pokemon} foi adicionado à sua PokéBox!\n")
+                if safari.pokemon in p.pokemons_basicos:
+                    p.pokemons_basicos.remove(safari.pokemon)
+                elif safari.pokemon in p.pokemons_lendarios:
+                    p.pokemons_lendarios.remove(safari.pokemon)
                 safari.safari()
             else:
                 delay_print(f"Essa não! O {safari.pokemon.nome} escapou!\n")
@@ -55,3 +61,17 @@ def arremesso():
 
 def criar_copia(pokemon):
     return copy.deepcopy(pokemon)
+
+def xp():
+    for pokemon in pb.pokemon_party:
+        if pokemon.hp > 0:
+            pokemon.xp += random.randint(10, 30)
+            delay_print(f"{pokemon.nome} ganhou {pokemon.xp} de XP!\n")
+            if pokemon.xp >= pokemon.xp_max:
+                p.nivel_up(pokemon)
+                delay_print(f"{pokemon.nome} subiu de nível! Agora está no nível {pokemon.nivel}!\n")
+            else:
+                continue
+        else:
+            continue
+    

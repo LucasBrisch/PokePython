@@ -1,8 +1,9 @@
 import escolha
 import PokeBox
-import Safari
+import SafariSimples as Safari
 import utils
 import batalhasv2 as b
+import pokecenter as pokecenter
 
 def start():
     escolha.escolha_inicial()
@@ -16,7 +17,8 @@ def menu():
 [2] Acessar sua PokéBox
 [3] Acessar o Safari
 [4] Batalhar (em desenvolvimento.....)
-[5] Sair do jogo\n''')
+[5] PokeCenter
+[6] Sair do jogo\n''')
     escolha = input()
     if escolha == "1":
         PokeBox.player_party()
@@ -27,6 +29,8 @@ def menu():
     elif escolha == "4":
         b.comeco_batalha()
     elif escolha == "5":
+        pokecenter.pokecenter()
+    elif escolha == "6":
         utils.delay_print("Tem certeza de que deseja sair do jogo? Seu progresso não será salvo!\n")
         utils.delay_print('''[1] sim
 [2] não\n''')
