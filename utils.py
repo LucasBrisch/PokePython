@@ -1,21 +1,20 @@
 import time
 import sys
 import random
-import Safari as safari
+import SafariSimples as safari
 import PokeBox as box
 import copy
 import PokeBox as pb
 import Pokemons as p
 
 player_name = ''
-mochila = ["Potion", "Super Potion", "Hyper Potion", "Revive"]
 
 def delay_print(s):
     # print one character at a time
     for c in s:
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(0.0)
+        time.sleep(0.02)
         
 def delay_print_s(s):
     # print one character at a time
@@ -28,6 +27,7 @@ def delay_print_s(s):
 
 def arremesso():
     global pokemon
+    print()
     escolha = input()
         
     while escolha not in ["1", "2"]:
@@ -45,11 +45,12 @@ def arremesso():
             if random_number <= 60:        
                 delay_print(f"Parabéns! Você capturou um {safari.pokemon.nome}!\n")
                 box.pokemon_box.append(copy.deepcopy(safari.pokemon))
-                delay_print(f"{safari.pokemon} foi adicionado à sua PokéBox!\n")
+                delay_print(f"{safari.pokemon.nome} foi adicionado à sua PokéBox!\n")
                 if safari.pokemon in p.pokemons_basicos:
                     p.pokemons_basicos.remove(safari.pokemon)
                 elif safari.pokemon in p.pokemons_lendarios:
                     p.pokemons_lendarios.remove(safari.pokemon)
+                xp()
                 safari.safari()
             else:
                 delay_print(f"Essa não! O {safari.pokemon.nome} escapou!\n")
@@ -68,8 +69,17 @@ def xp():
             pokemon.xp += random.randint(10, 30)
             delay_print(f"{pokemon.nome} ganhou {pokemon.xp} de XP!\n")
             if pokemon.xp >= pokemon.xp_max:
-                p.nivel_up(pokemon)
+                pokemon.nivel += 1
+                pokemon.xp = 0
+                pokemon.xp_max = int(pokemon.xp_max * 1.1)
                 delay_print(f"{pokemon.nome} subiu de nível! Agora está no nível {pokemon.nivel}!\n")
+                if pokemon.evolucao and pokemon.nivel >= pokemon.nivel_evolucao:
+                    delay_print(f"Parabéns! Seu {pokemon.nome} evoluiu para {pokemon.evolucao.nome}!\n")
+                    pb.pokemon_party.append(criar_copia(pokemon.evolucao))
+                    pb.pokemon_party.remove(pokemon)
+
+                
+
             else:
                 continue
         else:

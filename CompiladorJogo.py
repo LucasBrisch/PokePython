@@ -23,7 +23,7 @@ def menu():
     if escolha == "1":
         PokeBox.player_party()
     elif escolha == "2":
-        PokeBox.box()
+        PokeBox.pc()
     elif escolha == "3":
         Safari.safari()
     elif escolha == "4":

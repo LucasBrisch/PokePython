@@ -8,6 +8,7 @@ import PokeBox as pb
 import CompiladorJogo as cj
 import pokecenter as pokecenter
 import bag as b
+import math
 party_adversario = []
 
 
@@ -51,7 +52,7 @@ def ataque_efetivo(tipo_atacante, tipo_defensor):
     
 def calcular_dano_real(dano_ataque, nivel_usuario):
     # Ajuste do poder base do movimento conforme o nível do usuário
-    poder_base_ajustado = dano_ataque * (nivel_usuario / 100)
+    poder_base_ajustado = math.ceil(dano_ataque * (nivel_usuario / 100))
     
     # Retornar o dano real
     return poder_base_ajustado
@@ -97,7 +98,7 @@ def comeco_batalha ():
     menu_batalha (pokemon_ativo, pokemon_adversario)
     
 def menu_batalha (pokemon_ativo, pokemon_adversario):
-        utils.delay_print(f"Pokémon ativo: {pokemon_ativo.nome} - HP: {pokemon_ativo.hp}\nPokémon adversário: {pokemon_adversario.nome} - HP: {pokemon_adversario.hp}\n")
+        utils.delay_print(f"Pokémon ativo: {pokemon_ativo.nome} lvl:{pokemon_ativo.nivel} - HP: {pokemon_ativo.hp}\nPokémon adversário: {pokemon_adversario.nome} lvl:{pokemon_adversario.nivel} - HP: {pokemon_adversario.hp}\n")
         utils.delay_print("O que você deseja fazer?\n")
         utils.delay_print("[1] - Atacar\n[2] - Trocar de pokemon\n[3] - Acessar sua bag \n[4] - Fugir\n")
         escolha = int(input())
@@ -107,7 +108,7 @@ def menu_batalha (pokemon_ativo, pokemon_adversario):
             pokemon_ativo = trocar_pokemon(pokemon_ativo, pokemon_adversario)
             ataque_adversario(pokemon_ativo, pokemon_adversario)
         if escolha == 3:
-            b.bag()
+            b.bag(pokemon_ativo, pokemon_adversario)
         if escolha == 4:
             fuga = random.randint(1, 100)
             if fuga <= 50:
@@ -129,10 +130,10 @@ def ataque (pokemon_ativo, pokemon_adversario):
     dano = calcular_dano_real(dano, pokemon_ativo.nivel)
     if tipo == pokemon_adversario.tipo:
         print ("\nAtaque não muito efetivo!")
-        dano = dano * 0.75
+        dano = math.ceil(dano * 0.75)
     else:
         if ataque_efetivo(tipo, pokemon_adversario.tipo):
-            dano = dano * 1.5
+            dano = math.ceil(dano * 1.5)
             print("Ataque super efetivo!")
     pokemon_adversario.hp -= dano
     utils.delay_print(f"{pokemon_adversario.nome} sofreu {dano} de dano!")
@@ -155,13 +156,13 @@ def ataque_adversario (pokemon_ativo, pokemon_adversario):
     tipo = pokemon_adversario_movimento.tipo
     dano = calcular_dano_real(dano, pokemon_adversario.nivel)
     utils.delay_print('\n' + pokemon_adversario_movimento.nome + ' foi usado!')
-    if tipo == pokemon_adversario.tipo:
-        print("Ataque não muito efetivo!")
-        dano = dano * 0.75
+    if tipo == pokemon_ativo.tipo:
+        print("\nAtaque não muito efetivo!")
+        dano = math.ceil(dano * 0.75)
     else:
         if ataque_efetivo(tipo, pokemon_adversario.tipo):
             print("Ataque super efetivo!")
-            dano = dano * 1.5
+            dano = math.ceil(dano * 1.5)
     pokemon_ativo.hp -= dano
     utils.delay_print(f"\n{pokemon_ativo.nome} sofreu {dano} de dano!\n")
     if esta_vivo_party(pb.pokemon_party):
@@ -171,7 +172,7 @@ def ataque_adversario (pokemon_ativo, pokemon_adversario):
             print(f"{pokemon_ativo.nome} foi nocauteado!")
             novo_pokemon_ativo = trocar_pokemon(pokemon_ativo, pokemon_adversario)
     else:
-        utils.delay_print("Todos os seus pokemons foram nocauteados! Você perdeu a batalha!\n Indo para o centro pokemon...")
+        utils.delay_print("Todos os seus pokemons foram nocauteados! Você perdeu a batalha!\nIndo para o centro pokemon...\n")
         pokecenter.pokecenter()
         
 

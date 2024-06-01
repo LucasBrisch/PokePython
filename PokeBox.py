@@ -5,81 +5,67 @@ import Pokemons as p
 
 global pokemon_party, pokemon_box
 pokemon_party = [ (p.Charizard)]
-pokemon_box = []   
+pokemon_box = [p.Entei]   
     
-def player_party():
-    print()
-    utils.delay_print(f'''\nOlá, {utils.player_name}! Essa é a sua equipe de Pokémons atual:''')
-    for i in pokemon_party:
-        utils.delay_print(f"\n{i.nome}")
-    utils.delay_print('''\nGostaria de acessar a sua box para editar sua party?
-[1] sim
-[2] não\n''')
-    escolha = input()
-    if escolha == "1":
-        box()
-        
-    elif escolha == "2":
-        utils.delay_print('Voltando para o menu principal...\n')
+def pc():
+    utils.delay_print("Bem vindo ao pc, o que você deseja fazer?\n")
+    utils.delay_print("[1] - Adicionar um pokemon a sua party\n[2] - Adicionar um pokémon a sua box\n[3] - Ver a sua party\n[4] - Ver a sua box\n[5] - Voltar ao menu\n")
+    escolha = int(input())
+    if escolha == 1:
+        if len(pokemon_party) == 6:
+            utils.delay_print("Sua party está cheia, você precisa guardar um pokémon na sua box para adicionar outro.\n")
+            pc()
+        elif len(pokemon_box) == 0:
+            utils.delay_print("Sua box está vazia, você precisa adicionar um pokémon a sua box para adicionar a sua party.\n")
+            pc()
+        else:
+            adicionar_pokemon_party()
+    elif escolha == 2:
+        if len(pokemon_party) == 1:
+            utils.delay_print("Sua party só tem um pokémon, você não pode guardar ele na box.\n")
+            pc()
+        else:
+            guardar_pokemon()
+    elif escolha == 3:
+        ver_party()
+    elif escolha == 4:
+        ver_box()
+    elif escolha == 5:
         cj.menu()
     else:
         utils.delay_print("Escolha inválida, tente novamente.\n")
-        player_party()        
-        
-if __name__ == "__main__":
-    player_party()
-    
-def box():
-    utils.delay_print(f'''Olá, {utils.player_name}! Essa é a sua PokéBox atual:''')
-    for pokemon in pokemon_box:
-        utils.delay_print(f"\n{pokemon.nome}")
-    utils.delay_print('''\nO que você deseja fazer agora?
-[1] Guardar um pokemon da sua party na sua PokéBox
-[2] Adicionar um Pokémon da sua box a sua equipe de Pokémons
-[3] Sair\n''')
-    escolha = input()
-    if escolha == "1":
-        utils.delay_print("Qual Pokémon você deseja adicionar à sua PokéBox? (Digite 'exit' para voltar)\n")
-        for pokemon in pokemon_party:
-            utils.delay_print (f"{pokemon} \n")
-            
-        escolha = input().capitalize()
-        while escolha not in pokemon_party:
-            if escolha == "Exit":
-                box()
-            else:
-                utils.delay_print("\nPor favor, escolha um Pokémon válido!\n")
-        if len(pokemon_party) == 1:
-            utils.delay_print("\nSua party ficará vazia! Por favor, adicione um Pokémon antes de remover outro.\n")
-            box()
-        elif len(pokemon_party) > 1:    
-            pokemon_box.append(escolha)
-            pokemon_party.remove(escolha)
-            utils.delay_print(f"\n{escolha} foi removido de sua party e adicionado à sua PokéBox!\n")
-            box()
-    elif escolha == "2":
-        utils.delay_print("Qual Pokémon você deseja adicionar à sua party? (Digite 'exit' para voltar)\n")
-        for pokemon in pokemon_box:
-            utils.delay_print(f"{pokemon} \n")
-        escolha = input().capitalize()
-        while escolha not in pokemon_box:
-            if escolha == "Exit":
-                box()
-            else:    
-                utils.delay_print("\nPor favor, escolha um Pokémon válido!\n")
-        if len(pokemon_party) == 6:
-            utils.delay_print("\nSua party está cheia! Por favor, remova um Pokémon antes de adicionar outro.\n")
-            box()
-        elif len(pokemon_party) < 6:
-            pokemon_party.append(escolha)
-            escolha = escolha.capitalize()
-            pokemon_box.remove(escolha)
-            utils.delay_print(f"\n{escolha} foi removido de sua PokéBox e adicionado à sua party!\n")
-            box()
-    elif escolha == "3":
-        utils.delay_print("Saindo...")
-        cj.menu()
-    
-    else:
-        utils.delay_print("Escolha inválida, tente novamente.")
-        box()
+        pc()
+
+def guardar_pokemon():
+    utils.delay_print("Qual Pokémon você deseja guardar na sua PokéBox?\n")
+    for i in range(len(pokemon_party)):
+        utils.delay_print(f"{i+1} - {pokemon_party[i].nome}")
+    print()
+    escolha = int(input())
+    pokemon_box.append(pokemon_party[escolha-1])
+    pokemon_party.pop(escolha-1)
+    utils.delay_print("Pokémon guardado com sucesso!\n")
+    pc()
+
+def adicionar_pokemon_party():
+    utils.delay_print("Qual Pokémon você deseja adicionar a sua party?\n")
+    for i in range(len(pokemon_box)):
+        utils.delay_print(f"{i+1} - {pokemon_box[i].nome}")
+    print()
+    escolha = int(input())
+    pokemon_party.append(pokemon_box[escolha-1])
+    pokemon_box.pop(escolha-1)
+    utils.delay_print("Pokémon adicionado com sucesso!\n")
+    pc()
+
+def ver_party():
+    utils.delay_print("Aqui está a sua party: \n")
+    for i in range(len(pokemon_party)):
+        utils.delay_print(f"{i+1} - {pokemon_party[i].nome}\n")
+    pc()
+
+def ver_box():
+    utils.delay_print("Aqui está a sua PokéBox: \n")
+    for i in range(len(pokemon_box)):
+        utils.delay_print(f"{i+1} - {pokemon_box[i].nome}\n")
+    pc()

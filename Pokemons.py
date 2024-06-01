@@ -36,10 +36,9 @@ def nivel_up(pkmn):
         pkmn.xp = 0
         pkmn.xp_max = int(pkmn.xp_max * 1.1)
         if pkmn.evolucao and pkmn.nivel >= pkmn.nivel_evolucao:
-            utils.delay_print(f"Parabéns! Seu {pkmn.nome} evoluiu para {pkmn.evolucao.nome}!")
+            utils.delay_print(f"Parabéns! Seu {pkmn.nome} evoluiu para {pkmn.evolucao.nome}!\n")
             pkmn = pkmn.evolucao
-        else:
-            utils.delay_print(f"Parabéns! Seu {pkmn.nome} subiu de nível! Nível atual: {pkmn.nivel}!")
+        return pkmn
             
 #itens
 Potion = Pocao('Potion', 'Cura 20 de HP', 20, 0)
