@@ -74,6 +74,27 @@ def usar_item(item):
             
     elif item.nome == "Revive":
         revive()
+        item.qtd -= 1
+        if item.qtd == 0:
+            player_bag.remove(item)
+            b.menu_batalha()
+        
+def revive():
+    for i in range(len(pb.pokemon_party)):
+        delay_print(f"{i+1}- {pb.pokemon_party[i].nome} ")
+    delay_print("\nQual pokemon deseja reviver? (para voltar digite 0)\n")
+    escolha = int(input())
+    if escolha == 0:
+        bag()
+    else:
+        pokemon = pb.pokemon_party[escolha-1]
+        if pokemon.hp > 0:
+            delay_print(f"{pokemon.nome} já está vivo!\n")
+            revive()
+        else:
+            pokemon.hp = pokemon.hp_max/2
+            delay_print(f"{pokemon.nome} foi revivido!\n")
+
         
 
 if __name__ == "__main__":
