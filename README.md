@@ -1,2 +1,2 @@
 # Pokemon
- tentando recriar o jogo de pokemon com python
+Criando um jogo no estilo de pokemon usando python

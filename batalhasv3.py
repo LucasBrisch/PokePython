@@ -116,7 +116,7 @@ def menu_batalha (pokemon_ativo, pokemon_adversario):
                 cj.menu()
             else:
                 print("Você não conseguiu fugir!")
-                menu_batalha()
+                menu_batalha(pokemon_ativo, pokemon_adversario)
         else:
             menu_batalha(pokemon_ativo, pokemon_adversario)
             
