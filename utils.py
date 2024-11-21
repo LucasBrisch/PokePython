@@ -8,6 +8,7 @@ import PokeBox as pb
 import Pokemons as p
 
 player_name = ''
+dinheiro = 9999
 
 def delay_print(s):
     # print one character at a time

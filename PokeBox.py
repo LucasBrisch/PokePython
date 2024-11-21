@@ -4,8 +4,8 @@ import CompiladorJogo as cj
 import Pokemons as p
 
 global pokemon_party, pokemon_box
-pokemon_party = [ (p.Charizard)]
-pokemon_box = [p.Entei]   
+pokemon_party = []
+pokemon_box = []   
     
 def pc():
     utils.delay_print("Bem vindo ao pc, o que você deseja fazer?\n")

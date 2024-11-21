@@ -8,7 +8,7 @@ import time
 import sys
 import PokeBox as pb
 
-player_bag = [p.Hyper_Potion]
+player_bag = []
 
 def delay_print(s):
     # print one character at a time
@@ -29,6 +29,10 @@ def recompensa():
         reward.qtd += 1
         delay_print (f"Você recebeu um(a) {reward.nome}!\n")    
         delay_print(f"{reward.qtd} {reward.nome}(s) na sua mochila\n")
+    random_number = random.randint(600, 1600)
+    utils.dinheiro += random_number
+    delay_print(f"Você recebeu {random_number} moedas!\n")    
+    
         
 def bag(pokemon_ativo, pokemon_adversario):
     print("Selecione um item da sua mochila: (para voltar digite 0)")

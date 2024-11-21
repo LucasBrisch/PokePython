@@ -22,7 +22,8 @@ class Movimento:
         self.tipo = tipo
         
 class Pocao: 
-    def __init__(self, nome, descricao, cura, qtd, condicao = False):
+    def __init__(self, preco, nome, descricao, cura, qtd, condicao = False):
+        self.preco = preco
         self.nome = nome
         self.descricao = descricao
         self.cura = cura
@@ -41,10 +42,10 @@ def nivel_up(pkmn):
         return pkmn
             
 #itens
-Potion = Pocao('Potion', 'Cura 20 de HP', 20, 0)
-Super_Potion = Pocao('Super Potion', 'Cura 50 de HP', 50, 0)
-Hyper_Potion = Pocao('Hyper Potion', 'Cura 200 de HP', 200, 0)
-Revive = Pocao('Revive', 'Revive um pokemon com 50% de HP', 0, 0, True)
+Potion = Pocao(200, 'Potion', 'Cura 20 de HP', 20, 0)
+Super_Potion = Pocao(500, 'Super Potion', 'Cura 50 de HP', 50, 0)
+Hyper_Potion = Pocao(1000, 'Hyper Potion', 'Cura 200 de HP', 200, 0)
+Revive = Pocao(1500, 'Revive', 'Revive um pokemon com 50% de HP', 0, 0, True)
         
 # Movimentos
 Tackle = Movimento('Tackle', 40, 'Normal')

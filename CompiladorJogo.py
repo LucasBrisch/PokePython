@@ -4,6 +4,8 @@ import SafariSimples as Safari
 import utils
 import batalhasv3 as b
 import pokecenter as pokecenter
+import PokeShop as PokeShop
+import bag
 
 def start():
     escolha.escolha_inicial()
@@ -18,7 +20,12 @@ def menu():
 [3] Acessar o Safari
 [4] Batalhar
 [5] PokeCenter
-[6] Sair do jogo\n''')
+[6] PokeShop
+[7] Sair do jogo\n''')
+    
+    for item in bag.player_bag:
+        print(f"{item.nome} - {item.qtd}")
+    
     escolha = input()
     if escolha == "1":
         PokeBox.player_party()
@@ -31,6 +38,8 @@ def menu():
     elif escolha == "5":
         pokecenter.pokecenter()
     elif escolha == "6":
+        PokeShop.PokeShop()
+    elif escolha == "7":
         utils.delay_print("Tem certeza de que deseja sair do jogo? Seu progresso não será salvo!\n")
         utils.delay_print('''[1] sim
 [2] não\n''')

@@ -4,8 +4,8 @@ import Pokemons as p
         
 def escolha_inicial():
     print()
-    utils.delay_print('''Olá, meu nome é Professor Carvalho, bem-vindo ao mundo dos Pokémons! Este mundo é habitado 
-por criaturas chamadas Pokémons! Para algumas pessoas, os Pokémons são animais de estimação. Outros os usam para lutar. 
+    utils.delay_print('''Olá, meu nome é Professor Carvalho, bem-vindo ao mundo dos Pokémons! 
+Este mundo é habitado  por criaturas chamadas Pokémons! Para algumas pessoas, os Pokémons são animais de estimação. Outros os usam para lutar. 
 Eu mesmo... Estudo Pokémons como profissão.\n\nAgora me diga, qual é o seu nome?\n''')
     player_name = str(input()) 
     
