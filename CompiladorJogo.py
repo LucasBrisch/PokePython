@@ -23,8 +23,6 @@ def menu():
 [6] PokeShop
 [7] Sair do jogo\n''')
     
-    for item in bag.player_bag:
-        print(f"{item.nome} - {item.qtd}")
     
     escolha = input()
     if escolha == "1":
